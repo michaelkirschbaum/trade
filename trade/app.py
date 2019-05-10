@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-import requests
-from secrets import *
-from pprint import pprint
+from Robinhood import Robinhood
+import os
 
-r = requests.get('https://api.robinhood.com')
+username = os.environ.get('RH_USERNAME')
+password = os.environ.get('RH_PASSWORD')
+
+client = Robinhood()
+client.login(username=username, password=password)
+
+client.logout()
